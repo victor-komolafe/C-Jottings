@@ -1,0 +1,159 @@
+The standard input and output streams are:
+cout(console out), cin(console in) , cerr(console error) and clog(console log)
+
+C++ has three ways of initializing a variable:
+1. int ag = 21; //C-like initialization
+2. int age (21); //Constructor initialization
+3. int age {21}; //C++11 list initialization syntax. this version helps in catching overflow errors during compile time before execution
+
+SIzeof Operator:
+Ths return the number of bytes used to represent any type
+It can also be used to determine the size of compound types like arrays, structures and objects
+
+syntax:
+sizeof(datatype/variable)
+or
+sizeof variableName
+
+It uses two c++ header files: <climits> (used for information integer types)
+and <cfloats>(used for information about float types)
+
+Pseudocode is like an English-like representation of the steps encessary to solve a problem.
+It helps you organize your thoughts in order to solve a problem
+
+Refactoring means changing your code to make it better without changing the behavour
+
+Nested if statement
+In computer science, when there are multiple if statemens and one else statements,
+it is called the DANGLING ELSE PROBLEM. Every programming language decides how to handle it, the question is which if does the else belong to? In c++ the else belongs to the closest if
+
+Swtich statments:
+without a break in a swithc, every case writen will be executed so it is good practice to always put one after each case. Alsp make sure to put your default case
+Switch statments only accept integral and enumeration data types
+
+Always take note of the KISS principal
+i.e Keep It Short and Simple(dont try to be clever in your code but keep it as simple as possible)
+
+Function:
+to view all the c++ functions we can go to
+en.cppreference.com
+Pass by value:
+When you pass data pr values into a function, it is passed-by-value; i.e a copy of the data is passed to the function and is used
+Whatever changes you make to the parameter in the function doesnt affect the original arguement that was passed in. almost same concept as post increment
+
+Formal parameters - the parameters defined in the function header
+Actual parameters - the parameters used in the function call, the arguements
+
+function overloading can allow us to reuse the same function name for different things only if there is a difference in the type of the arguements passed.
+e.g void display(int n);	void display(std:string s);
+the return type is not considered to determine which function to call
+note characters are always promoted to integers (they are converted to thier ASCII values)
+floats can  be converted to double, cstyle string can also be converted to  c++ strings during overloading
+dont/be careful when) using multiple default arguements for an  overloaded function as this could cause compile error
+For arrays
+unlike pass by value, we dont make a copy of the arguement but pass the memory location of the array into the function
+we can actually modify the values of the array using the functions 
+
+
+Pass by Refernce: sometimes we want to be able to change the actual parameter from within the function body like we can do for array but for variables
+In ordeer to do this, we need the location of the actual parameter and use reference parameters to tell the compiler to pass in a refernce to the actual parameter, we use the '&' sign before the parameter to acheive this
+
+scope rules:
+We have local and global 
+local scope; terminates immediatly outside the scope or curly brackets. cant be used between function calls
+global scope; exist through out the whole code
+
+Declared static quailfier:e.g	static int value{10}
+preserves value in between function calls and is only initiayialized once i.e when the function is called . it retains its value even outside its  local scope
+
+
+POINTERS
+are variables store the memory address of variables or functions
+syntax:
+int *int_ptr;
+doulbe* souble_ptr	doesnt matter the position of the asterick
+
+REFERENCE:
+ * An alias for a variable. whenever you use a reference, you use the variable it refers to
+ * Must be initialized to a varible when declared
+ * Cannot be null
+ * Once initialized cannot be made to refer to a different variable
+ * Veru useful as function parameters
+ * Might be helpful to think of a refernce as a constant pointer that is automatically dereferenced
+ *uses the & symbol
+
+L-Values and R-values
+L-values:
+- these are values that have names and are addressable
+- modifiable if they are not constant
+e.g int x{100}, string name = "Frank"	//x and name are an l-value
+note:
+100 = x	//100 is not an l-value
+(100+20) = x;	//not an l-value
+"Frank" = name;	//"frank" is not an l-value due to non addressability
+
+R-values
+- a value thats not an l-value
+- on the right=hand side of an assignment expression
+- a literal
+- a temporary which is intended to be non-modifiable 
+e.g int x{100};	//100 is an r-value
+int y = x+200 ; (x+200) is an r-value
+name = "Frank"; "Frank" is an r-value
+- r-values can be assigned to l-values explicity
+e.g int x{100}, y{0};
+y =100; //r-value 100 assisgned to l-value y
+x =x+y;	//r-value (x+y) assigned to l-value x
+
+l-value references
+- the refernces we've used are l-value references
+- because we are referencing l-values. e.g
+int x{100};
+int &ref1 =x; 	//ref1 is refernce to l-value x
+ref1=1000;
+
+int &ref2 = 100; //error 100 is an r-value
+
+- the same when we pass-by-reference. e.g
+int square(int &n){
+return n*n; }
+int num{10};
+square(num);	//ok
+square(5);	//error can't refernce r-value 5
+
+How to use a Debugger;
+use need to set a break point ,i.e a line in your code where the debugger is going to stop debugging. usually reperesents a red line before the number in your code gui
+the local section:shows our local varibles and its values as we move up or down the code
+the watch section
+the step in button is used to move into a function 
+
+When to use pointers vs refernce parameters
+-Pass by value
+. when the function does not modify the actual parameters and
+. the parameter is small and efficeint to copy like simple types(int, char,doulbe,etc) not that strings and vectors are not included here
+
+- pass by reference using a pointer
+.when the function does modify the actual parameter and
+. the parameter is expensive to copy
+. if its ok to for the pointer to be allowed a nullptr value
+
+- pass by refernce using pointer to const
+.when the function does not modify the actual parameter and
+. the parameter is expensive to copy
+. its ok to if pointer is allowed nullptr 
+
+-pass by refernce using a const pointer to const:
+same scenerio as above but now including;
+. not wanting to modify the pointer itself
+
+- Pass by refernce using a reference
+. when th function does modify the actual parameter and
+. the parameter is expensive to copy
+. the parameter will never be nullptr
+
+- pass by reference using a const refernce: same as above but including:
+. the function does not modify the actaul parameter
+
+
+
+
