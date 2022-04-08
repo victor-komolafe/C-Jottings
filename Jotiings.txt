@@ -119,7 +119,7 @@ int square(int &n){
 return n*n; }
 int num{10};
 square(num);	//ok
-square(5);	//error can't refernce r-value 5
+square(5);	//error can't reference an r-value 5
 
 How to use a Debugger;
 you need to set a break point ,i.e a line in your code where the debugger is going to stop debugging. usually reperesents a red line before the number in your code gui
