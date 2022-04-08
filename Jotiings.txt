@@ -55,7 +55,7 @@ unlike pass by value, we dont make a copy of the arguement but pass the memory l
 we can actually modify the values of the array using the functions 
 
 
-Pass by Refernce: sometimes we want to be able to change the actual parameter from within the function body like we can do for array but for variables
+Pass by Reference: sometimes we want to be able to change the actual parameter from within the function body like we can do for array but for variables
 In ordeer to do this, we need the location of the actual parameter and use reference parameters to tell the compiler to pass in a refernce to the actual parameter, we use the '&' sign before the parameter to acheive this
 
 scope rules:
@@ -122,7 +122,7 @@ square(num);	//ok
 square(5);	//error can't refernce r-value 5
 
 How to use a Debugger;
-use need to set a break point ,i.e a line in your code where the debugger is going to stop debugging. usually reperesents a red line before the number in your code gui
+you need to set a break point ,i.e a line in your code where the debugger is going to stop debugging. usually reperesents a red line before the number in your code gui
 the local section:shows our local varibles and its values as we move up or down the code
 the watch section
 the step in button is used to move into a function 
